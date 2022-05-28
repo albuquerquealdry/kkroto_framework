@@ -1,7 +1,7 @@
 import os
 
 
-os.chdir('../kkroto_framework')
+
 def create(typeCluster):
     os.system("ls")
     os.system("clear")
