@@ -1,42 +1,36 @@
-from platform import python_build
+from kind import kind_modules
+from ultil import exceptions
 import sys
-import os
-from istio import istioInstall
-from k8s import managementCluster
-from telemetry import prometheus
-from install import install
 
-def cluster(param1, param2):
-    if param1 == "create":
-        managementCluster.create(param2)
-    elif param1 == "delete":
-        managementCluster.delete()
+class select():
+    def kind_modulation(self, arg, subarg = ""):
+        if(arg == "init"):
+            kind_modules.kind_module.kind_init_config()
+        if(arg == "create"):
+            kind_modules.kind_module.kind_create_cluster(subarg)
+        if(arg == "delete"):
+            kind_modules.kind_module.kind_delete_cluster()
 
-def istio(param1):
-    if param1 == "play":
-        istioInstall.play()
+def methodQuestion(method, arg = "", subarg = ""):
 
-def telemetry(param):
-    if param == "run":
-        prometheus.prometheus()
+    s = select()
+    if(method == "kind"):
+        s.kind_modulation(arg, subarg)
+    else:
+        print("Esse método é invalido")
+    if(method == "help"):
+        e = exceptions()
+        e.exeception.generic_erro()
 
-def installs():
-    install.installClusterOperator()
+if len(sys.argv) == 4:
+    try:   
+        methodQuestion(sys.argv[1] , sys.argv[2] , sys.argv[3])
+    except:
+        print("[FATAL]: Erro, revise o seu método e seus argumentos")
 
+if len(sys.argv) == 3:
+    try:   
+        methodQuestion(sys.argv[1] , sys.argv[2])
+    except:
+        print("[FATAL]: Erro, revise o seu método e seus argumentos")
 
-
-comand = sys.argv[1]
-if comand == "cluster":
-    param1 = sys.argv[2]
-    param2 = sys.argv[3]
-    cluster(param1, param2)
-elif comand == "istio":
-    param1 = sys.argv[2]
-    istio(param1)
-elif comand == "telemetry":
-    if (sys.argv[2]== "prometheus"):
-        telemetry(sys.argv[3])
-elif comand == "install":
-    installs()
-else:
-    print("Metodo desconhecido") 
