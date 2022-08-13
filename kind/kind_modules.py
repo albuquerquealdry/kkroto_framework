@@ -5,7 +5,7 @@ class kind_module():
         os.system("brew install  kind")
     
     def kind_create_cluster(arg):
-        os.system(f"kind create cluster --config ./tmp/{arg}.yaml")
+        os.system(f"kind create cluster --config $PWD/tmp/{arg}.yaml")
 
     def kind_delete_cluster():
         os.system("kind delete cluster")

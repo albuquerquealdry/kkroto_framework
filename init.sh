@@ -1,1 +1,1 @@
-alias kkroto=python3 $PWD/main.py
+echo "alias kkroto=python3 $PWD/main.py" >> ~/.bashrc

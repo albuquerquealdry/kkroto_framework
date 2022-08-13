@@ -2,30 +2,7 @@ from kind import kind_modules
 from ultil import menssage_module
 from telemetry import telemetry_module
 import sys, questionary, os
-# class select():
-#     def kind_modulation(self, arg, subarg = ""):
-#         if(arg == "init"):
-#             kind_modules.kind_module.kind_init_config()
-#         if(arg == "create"):
-#             kind_modules.kind_module.kind_create_cluster(subarg)
-#         if(arg == "delete"):
-#             kind_modules.kind_module.kind_delete_cluster()
-#     def telemetry(self, arg, subarg= ""):
-#         if (arg == "init"):
-#             telemetry_module.telemetry_module.init_telemetry(self)
-#         if(arg =="prometheus"):
-#             telemetry_module.telemetry_module.prometheus(self)
-#         if(arg == "grafana"):
-#             telemetry_module.telemetry_module.grafana(self)
 
-# def methodQuestion(method, arg = "", subarg = ""):
-
-#     s = select()
-#     if(method == "kind"):
-#         s.kind_modulation(arg, subarg)
-    
-#     if (method == "telemetry"):
-#         s.telemetry(arg)
 def acctionManagement():
     os.system("clear")
     acction = questionary.select(
@@ -66,6 +43,7 @@ def methodKubernetes():
             ]).ask()
     if(subMethod == 'Cluster Management'):
         acctionManagement()
+
 def help():
     menssage_module.menssage_module.help()
 
