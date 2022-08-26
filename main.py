@@ -1,6 +1,7 @@
 from kind import kind_modules
 from ultil import menssage_module
 from telemetry import telemetry_module
+from k8s import context_list
 import sys, questionary, os
 
 def acctionManagement():
@@ -29,8 +30,11 @@ def acctionManagement():
     
     if(acction == 'Delete Cluster'):
         kind_modules.kind_module.kind_delete_cluster()
+    if (acction == 'Select Context Kubernetes'):
+        context_list.select_context()
     if (acction == 'Exit'):
         exit()
+    
 
 def methodKubernetes():
     os.system("clear")
